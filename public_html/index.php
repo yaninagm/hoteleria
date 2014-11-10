@@ -58,8 +58,11 @@
                 <a href="#listado" data-role="button">Volver</a>
                 <h1>Información del hotel</h1>
             </div>
-            <div data-role="content">
-                <ul data-role="listview" id="fichaHotel" data-inset="true"></ul>
+            <div data-role="content" id="fichaHotel">
+                <div id="cabeceraFicha">
+                </div>
+                <div data-role="collapsible-set" data-theme="c" data-content-theme="d" id="infoFicha">'
+                </div>
             </div>
             <div data-role="footer" data-position="fixed">
                 <h1>By Canizo, Manganiello, Morales</h1>
