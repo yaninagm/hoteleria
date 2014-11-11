@@ -6,14 +6,14 @@
         $conexion_db = conectar_db();
         
         $result = mysql_query($query);
-    
+        
         while ($rowEmp = mysql_fetch_array($result)){
-            $data[] = array_map('utf8_encode', $rowEmp);
+            $data[] = $rowEmp;
         }
-    
+        
         $json_file = fopen($json_path, "w")
                      or die ("Problemas en la creación.");
-    
+        
         fputs($json_file, json_encode($data, JSON_UNESCAPED_UNICODE));
         
         mysql_close($conexion_db);
