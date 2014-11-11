@@ -4,10 +4,10 @@
         <title>Hoteles de Mendoza</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
-        <link rel="stylesheet" href="css/css-jquery.mobile-1.3.0/jquery.mobile-1.3.0.min.css" />
+        <link rel="stylesheet" href="css/libs/jquery-mobile/jquery.mobile-1.3.2.min.css" />
         
         <script src="js/libs/jquery/jquery.js"></script>
-        <script src="js/libs/jquery-mobile/jquery.mobile-1.3.0.min.js"></script>
+        <script src="js/libs/jquery-mobile/jquery.mobile-1.3.2.min.js"></script>
         
         <script src="js/funciones.js"></script>
     </head>
