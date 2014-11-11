@@ -16,9 +16,26 @@
         <?php
             include_once("conversorJson.php");
             
-            //obtener_categorias();
-            //obtener_hoteles();
+            obtener_categorias();
+            obtener_hoteles();
         ?>
+
+        <!-- Página de login-->
+        <div data-role="page" id="login">
+            <div data-role="header">
+                <h1>Autenticación de Usuario</h1>
+            </div>
+            <div data-role="content">
+                <form id="formulario" >
+                    <label> Usuario </label>
+                    <input type="text" id="nombredeusuario" name="nombredeusuario">
+                    <label> Password </label>
+                    <input type="password" id="clave" name="clave" >
+                    <input type="submit" value="Login" id="botonLogin">
+                </form>
+            </div>
+        </div>
+
     
         <!-- PÁGINA 1 -->
         <div data-role="page" id="index">
@@ -31,7 +48,7 @@
             <div data-role="footer" data-position="fixed">
                 <div data-role="navbar">
                     <ul>
-                        <li><a href="#">Login</a></li>
+                        <li><a href="#login">Login</a></li>
                         <li><a href="#">Map</a></li>
                     </ul>
                 </div>
