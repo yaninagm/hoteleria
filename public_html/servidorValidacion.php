@@ -1,4 +1,5 @@
 <?php
+setlocale(LC_ALL,"es_ES.utf8");
 
 /* Define los valores que seran evaluados, en este ejemplo son valores estaticos,
   en una verdadera aplicacion generalmente son dinamicos a partir de una base de datos */
@@ -12,7 +13,7 @@ $passwordEnviado = $_GET['password'];
 
 /* crea un array con datos arbitrarios que seran enviados de vuelta a la aplicacion */
 $resultados = array();
-$resultados["hora"] = date("F j, Y, g:i a");
+$resultados["hora"] = strftime("%T, %A %d de %B, %Y");
 $resultados["generador"] = "Enviado desde el servidor de validación";
 
 
