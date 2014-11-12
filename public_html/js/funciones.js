@@ -118,9 +118,8 @@ $(function() {
                 var hotel    = id_hotel;
                 $.each(data, function(index, item) {
                     if (item.id == hotel) {
-                        cabecera += '<div style="width: 100%;">'
-                        //cabecera += '<img src="' + item.enlace_imagen + '" style="display: block; margin-left: auto; margin-right: auto;" />';
-                        cabecera += '<img src="' + item.enlace_imagen + '" style="width: 100%;" />';
+                        cabecera += '<div style="width: 100%; text-align: center;">'
+                        cabecera += '<img src="' + item.enlace_imagen + '" style="max-width: 100%;" />';
                         cabecera += '</div>'
                         cabecera += '<h1 style="text-align: center">' + item.nombre + '</h2>';
                         if (item.info_resumen) {
