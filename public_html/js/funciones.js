@@ -70,11 +70,24 @@ $(function() {
             $.getJSON(archivoValidacion, {usuario: datosUsuario,
                                           password: datosPassword})
                 .done(function(respuestaServer) {
-                    alert(respuestaServer.mensaje + "\nGenerado en: " + respuestaServer.hora + "\n" + respuestaServer.generador + "  validacion  :" + respuestaServer.validacion);
                     if (respuestaServer.validacion == "ok") {
                         /// si la validacion es correcta, muestra la pantalla "home"
-                        $.mobile.changePage("#index");                                                     } else {
+                        swal({
+                          title: respuestaServer.mensaje,
+                          text: "Generado en: " + respuestaServer.hora,
+                          type: "success",
+                          allowOutsideClick: true
+                        });
+                        
+                        $.mobile.changePage("#index");
+                    } else {
                         /// ejecutar una conducta cuando la validacion falla
+                        swal({
+                          title: respuestaServer.mensaje,
+                          text: "Generado en: " + respuestaServer.hora,
+                          type: "error",
+                          allowOutsideClick: true
+                        });
                     }
                 });
             return false;

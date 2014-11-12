@@ -5,9 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
         <link rel="stylesheet" href="css/libs/jquery-mobile/jquery.mobile-1.3.2.min.css" />
+        <link rel="stylesheet" href="css/libs/sweetalert/sweet-alert.css" />
         
         <script src="js/libs/jquery/jquery.js"></script>
         <script src="js/libs/jquery-mobile/jquery.mobile-1.3.2.min.js"></script>
+        <script src="js/libs/sweetalert/sweet-alert.min.js"></script>
         
         <script src="js/funciones.js"></script>
     </head>
