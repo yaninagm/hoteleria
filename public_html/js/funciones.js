@@ -124,8 +124,11 @@ $(function() {
                         }
                     });
 
-                    contenidoLista += '<li class="ui-li-has-count">' +
+                    contenidoLista += '<li class="ui-li-has-count ui-li-has-thumb">' +
                                       '<a href="#listado?categoria=' + item.id + '">' +
+                                      '<div class="ui-li-thumb">' +
+                                      '<img src="' + item.enlace_imagen + '" class="thumb" alt="' + item.nombre + '">' +
+                                      '</div>' +
                                       '<h5>' + item.nombre + '</h5>' +
                                       '<span class="ui-li-count ui-body-inherit">' + cantidadHoteles + '</span>' +
                                       '</a></li>';

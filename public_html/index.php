@@ -6,6 +6,7 @@
         
         <link rel="stylesheet" href="css/libs/jquery-mobile/jquery.mobile-1.4.5.min.css" />
         <link rel="stylesheet" href="css/libs/sweetalert/sweet-alert.css" />
+        <link rel="stylesheet" href="css/index.css" />
         
         <script src="js/libs/jquery/jquery.js"></script>
         <script src="js/libs/jquery-mobile/jquery.mobile-1.4.5.min.js"></script>
