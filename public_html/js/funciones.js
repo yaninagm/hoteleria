@@ -99,9 +99,28 @@ $(function() {
         app.crearlista = function() {
             $.getJSON("json/categorias.json", function(data) {
                 var contenidoLista = '';
+                var cantidadHoteles = 0;
                 $.each(data, function(index, item) {
-                    // $('#lista').children().remove('li');
-                    contenidoLista += '<li><a href="#listado?categoria=' + item.id + '"><h5>' + item.nombre + '</h5></a></li>';
+                    $.ajax({
+                        url: 'json/hoteles.json',
+                        async: false,
+                        dataType: 'json',
+                        success: function(data) {
+                            cantidadHoteles = 0;
+                            $.each(data, function(index, hotel) {
+                                if (hotel.categoria == item.id) {
+                                    cantidadHoteles = cantidadHoteles + 1;
+                                }
+                            });
+
+                        }
+                    });
+
+                    contenidoLista += '<li class="ui-li-has-count">' +
+                                      '<a href="#listado?categoria=' + item.id + '">' +
+                                      '<h5>' + item.nombre + '</h5>' +
+                                      '<span class="ui-li-count ui-body-inherit">' + cantidadHoteles + '</span>' +
+                                      '</a></li>';
                 });
 
                 $('#lista').html(contenidoLista).listview('refresh');
