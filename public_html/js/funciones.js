@@ -59,7 +59,9 @@ $(function() {
 
                 // Función callback a ejecutar antes de mostrar la página
                 function (urlParams) {
+                    app.limpiarSlider();
                     app.crearFichas(urlParams.id);
+                    app.generarSlider();
                 }
             );
 
@@ -221,15 +223,25 @@ $(function() {
                     if (info) {
                         $('#infoFicha').html(info).collapsibleset('refresh');
                     }
-
-                    $('#galeria').owlCarousel({
-                        autoPlay: 3000,
-                        items: 3
-                    });
                 }
             });
         };
         
+        app.limpiarSlider = function() {
+             var galeria = $('#galeria').data('owlCarousel');
+
+             if (galeria) {
+                 galeria.destroy();
+             }
+        };
+
+        app.generarSlider = function() {
+            $('#galeria').owlCarousel({
+                autoPlay: 3000,
+                items: 2
+            });
+        };
+
         app.init();
     })(Hoteleria);
 });
