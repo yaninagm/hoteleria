@@ -6,13 +6,15 @@
         
         <link rel="stylesheet" href="css/libs/jquery-mobile/jquery.mobile-1.4.5.min.css" />
         <link rel="stylesheet" href="css/libs/sweetalert/sweet-alert.css" />
+        <link rel="stylesheet" href="css/libs/owl-carousel/owl.carousel.css" />
+        <link rel="stylesheet" href="css/libs/owl-carousel/owl.theme.css" />
         <link rel="stylesheet" href="css/index.css" />
         
         <script src="js/libs/jquery/jquery.js"></script>
         <script src="js/libs/jquery-mobile/jquery.mobile-1.4.5.min.js"></script>
         <script src="js/libs/jquery-mobile-paramsHandler/jquery.mobile.paramsHandler-1.4.2.js"></script>
         <script src="js/libs/sweetalert/sweet-alert.min.js"></script>
-        
+        <script src="js/libs/owl-carousel/owl.carousel.min.js"></script>
         <script src="js/funciones.js"></script>
     </head>
     
@@ -84,6 +86,8 @@
                 <div id="cabeceraFicha">
                 </div>
                 <div data-role="collapsible-set" id="infoFicha">'
+                </div>
+                <div id="galeria" class="owl-carousel">
                 </div>
             </div>
             <div data-role="footer" data-position="fixed">

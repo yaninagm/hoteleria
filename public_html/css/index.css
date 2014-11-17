@@ -13,3 +13,13 @@ div .ui-li-thumb {
   max-width: 70px;
   max-height:70px;
 }
+
+#galeria .item {
+  margin: 3px;
+}
+
+#galeria .item img {
+  display: block;
+  width: 100%;
+  height: auto;
+}

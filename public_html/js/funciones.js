@@ -155,40 +155,77 @@ $(function() {
 
         //Fichas de la pagina #fichas
         app.crearFichas = function(id_hotel) {
-            $.getJSON('json/hoteles.json', function(data) {
-                var cabecera = '';
-                var info     = '';
-                var hotel    = id_hotel;
-                $.each(data, function(index, item) {
-                    if (item.id == hotel) {
-                        cabecera += '<div style="width: 100%; text-align: center;">'
-                        cabecera += '<img src="' + item.enlace_imagen + '" style="max-width: 100%;" />';
-                        cabecera += '</div>'
-                        cabecera += '<h1 style="text-align: center">' + item.nombre + '</h2>';
-                        if (item.info_resumen) {
-                            info += '<div data-role="collapsible" id="info-resumen">';
-                            info += '<h3>Resumen</h3>';
-                            info += '<p>' + item.info_resumen + '</p>';
-                            info += '</div>';
+            $.ajax({
+                url: 'json/hoteles.json',
+                async: false,
+                dataType: 'json',
+                success: function(data) {
+                    var cabecera = '';
+                    var info     = '';
+                    var hotel    = null;
+
+                    $.each(data, function(index, item) {
+                        if (item.id == id_hotel) {
+                            hotel = item;
+                            return false;
                         }
-                        if (item.info_habitaciones) {
-                            info += '<div data-role="collapsible" id="info-habitaciones">';
-                            info += '<h3>Habitaciones</h3>';
-                            info += '<p>' + item.info_habitaciones + '</p>';
-                            info += '</div>';
-                        }
-                        if (item.info_restaurant) {
-                            info += '<div data-role="collapsible" id="info-restaurant">';
-                            info += '<h3>Restaurant</h3>';
-                            info += '<p>' + item.info_restaurant + '</p>';
-                            info += '</div>';
-                        }
+                    });
+
+                    cabecera += '<div style="width: 100%; text-align: center;">' +
+                                '<img src="' + hotel.enlace_imagen + '" style="max-width: 100%;" />' +
+                                '</div>' +
+                                '<h1 style="text-align: center">' + hotel.nombre + '</h2>';
+
+                    if (hotel.info_resumen) {
+                        info += '<div data-role="collapsible" id="info-resumen">' +
+                                '<h3>Resumen</h3>' +
+                                '<p>' + hotel.info_resumen + '</p>' +
+                                '</div>';
                     }
-                });
+
+                    if (hotel.info_habitaciones) {
+                        info += '<div data-role="collapsible" id="info-habitaciones">' +
+                                '<h3>Habitaciones</h3>' +
+                                '<p>' + hotel.info_habitaciones + '</p>' +
+                                '</div>';
+                    }
+
+                    if (hotel.info_restaurant) {
+                        info += '<div data-role="collapsible" id="info-restaurant">' +
+                                '<h3>Restaurant</h3>' +
+                                '<p>' + hotel.info_restaurant + '</p>' +
+                                '</div>';
+                    }
+                    
+                    var directorio = hotel.directorio_galeria;
+                    var extensionArchivo = '.jpg';
+
+                    $.ajax({
+                        url: directorio,
+                        async: false,
+                        success: function (data) {
+                            var galeriaImagenes = '';
+
+                            $(data).find("a:contains(" + extensionArchivo + ")").each(function () {
+                                var archivo = this.href.substring(this.href.lastIndexOf('/')+1);
+                                galeriaImagenes += '<div class="item">' +
+                                                   '<img src="' + directorio + archivo + '" alt="' + archivo +'">' +
+                                                   '</div>';
+                            });
+
+                            $('#galeria').html(galeriaImagenes);
+                        }
+                    });
         
-                $('#cabeceraFicha').html(cabecera);
-                if (info) {
-                    $('#infoFicha').html(info).collapsibleset('refresh');
+                    $('#cabeceraFicha').html(cabecera);
+                    if (info) {
+                        $('#infoFicha').html(info).collapsibleset('refresh');
+                    }
+
+                    $('#galeria').owlCarousel({
+                        autoPlay: 3000,
+                        items: 3
+                    });
                 }
             });
         };
