@@ -35,28 +35,36 @@ $(function() {
         // Dentro de la funcion Bindings van las llamadas a las funciones del desarrollo integro
         app.bindings = function() {
             //Cargo todos los eventos posibles. Importante.
-            $(document).on("pagebeforeload pageload pageloadfailed pagebeforechange pagechange pagechangefailed pagebeforeshow pagebeforehide pageshow pagehide pagebeforecreate pagecreate pageinit pageremove updatelayout", function(e) {
+            $(document).on("pagecontainerbeforeload pagecontainerload pagecontainerloadfailed pagebeforechange pagechange pagecontainerchangefailed pagecontainerbeforeshow pagebeforehide pagecontainershow pagecontainerhide pagebeforecreate pagecreate pageinit pageremove updatelayout", function(e) {
                 console.log(e.type);
             });
             
-            // Objeto pagina #listado (Pagina 2)
-            $("#listado").on("pagebeforeshow", function(e) {
-                // Se utiliza para la captura de Id 
-                var url = $(this).data("absUrl");
-                var id_categoria = url.split("=")[1];
-                if (id_categoria) {
-                    app.crearListado(id_categoria);
-                }
-            });
+            // Manejo de parámetros en página #listado (listado de hoteles)
+            $.mobile.paramsHandler.addPage(
+                'listado',               // ID de la página
+                ['categoria'],           // Parámetros obligatorios
+                [],                      // Parámetros opcionales
 
-            //Objeto pagina #fichas (pagina 3)
-            $("#ficha").on("pagebeforeshow", function(e) {
-                var url = $(this).data("absUrl");
-                var id_hotel = url.split("=")[1];
-                if (id_hotel){
-                    app.crearFichas(id_hotel);
+                // Función callback a ejecutar antes de mostrar la página
+                function (urlParams) {
+                    app.crearListado(urlParams.categoria);
                 }
-            });
+            );
+
+            // Manejo de parámetros en página #ficha (ficha de hotel)
+            $.mobile.paramsHandler.addPage(
+                'ficha',                 // ID de la página
+                ['id'],                  // Parámetros obligatorios
+                [],                      // Parámetros opcionales
+
+                // Función callback a ejecutar antes de mostrar la página
+                function (urlParams) {
+                    app.crearFichas(urlParams.id);
+                }
+            );
+
+            // Inicialización de paramsHandler
+            $.mobile.paramsHandler.init();
         };
 
 

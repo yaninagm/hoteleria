@@ -4,11 +4,12 @@
         <title>Hoteles de Mendoza</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
-        <link rel="stylesheet" href="css/libs/jquery-mobile/jquery.mobile-1.3.2.min.css" />
+        <link rel="stylesheet" href="css/libs/jquery-mobile/jquery.mobile-1.4.5.min.css" />
         <link rel="stylesheet" href="css/libs/sweetalert/sweet-alert.css" />
         
         <script src="js/libs/jquery/jquery.js"></script>
-        <script src="js/libs/jquery-mobile/jquery.mobile-1.3.2.min.js"></script>
+        <script src="js/libs/jquery-mobile/jquery.mobile-1.4.5.min.js"></script>
+        <script src="js/libs/jquery-mobile-paramsHandler/jquery.mobile.paramsHandler-1.4.2.js"></script>
         <script src="js/libs/sweetalert/sweet-alert.min.js"></script>
         
         <script src="js/funciones.js"></script>
@@ -27,7 +28,7 @@
             <div data-role="header">
                 <h1>Autenticación de Usuario</h1>
             </div>
-            <div data-role="content">
+            <div class="ui-content" role="main">
                 <form id="formulario" >
                     <label> Usuario </label>
                     <input type="text" id="nombredeusuario" name="nombredeusuario">
@@ -45,7 +46,7 @@
                 <h1>Hoteles de Mendoza</h1>
                 <a href="#login" data-role="button" data-icon="delete" class="ui-btn-right">Salir</a>
             </div>
-            <div data-role="content">
+            <div class="ui-content" role="main">
                 <ul data-role="listview" id="lista" data-inset="true"></ul>
             </div>
             <div data-role="footer" data-position="fixed">
@@ -59,12 +60,12 @@
         </div>
 
         <!-- PÁGINA 2: Listado de hoteles -->
-        <div data-role="page" id="listado" data-add-back-btn="true" data-back-btn-text="Volver">
-            <div data-role="header">
+        <div data-role="page" id="listado">
+            <div data-role="header" data-add-back-btn="true" data-back-btn-text="Volver">
                 <h1>Listado de hoteles</h1>
                 <a href="#login" data-role="button" data-icon="delete" class="ui-btn-right">Salir</a>
             </div>
-            <div data-role="content">
+            <div class="ui-content" role="main">
                 <ul data-role="listview" id="listaHoteles" data-inset="true"></ul>
             </div>
             <div data-role="footer" data-position="fixed">
@@ -73,15 +74,15 @@
         </div> 
         
         <!-- PÁGINA 3: Ficha de hoteles -->
-        <div data-role="page" id="ficha" data-add-back-btn="true" data-back-btn-text="Volver">
-            <div data-role="header">
+        <div data-role="page" id="ficha">
+            <div data-role="header" data-add-back-btn="true" data-back-btn-text="Volver">
                 <h1>Información del hotel</h1>
                 <a href="#login" data-role="button" data-icon="delete" class="ui-btn-right">Salir</a>
             </div>
-            <div data-role="content" id="fichaHotel">
+            <div class="ui-content" role="main" id="fichaHotel">
                 <div id="cabeceraFicha">
                 </div>
-                <div data-role="collapsible-set" data-theme="c" data-content-theme="d" id="infoFicha">'
+                <div data-role="collapsible-set" id="infoFicha">'
                 </div>
             </div>
             <div data-role="footer" data-position="fixed">
