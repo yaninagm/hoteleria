@@ -43,6 +43,7 @@
         <div data-role="page" id="index">
             <div data-role="header">
                 <h1>Hoteles de Mendoza</h1>
+                <a href="#login" data-role="button" data-icon="delete" class="ui-btn-right">Salir</a>
             </div>
             <div data-role="content">
                 <ul data-role="listview" id="lista" data-inset="true"></ul>
@@ -56,12 +57,12 @@
                 </div>
             </div>
         </div>
-	
+
         <!-- PÁGINA 2: Listado de hoteles -->
-	<div data-role="page" id="listado" data-add-back-btn="true">
+        <div data-role="page" id="listado" data-add-back-btn="true" data-back-btn-text="Volver">
             <div data-role="header">
-                <a href="#index" data-role="button">Volver</a>
                 <h1>Listado de hoteles</h1>
+                <a href="#login" data-role="button" data-icon="delete" class="ui-btn-right">Salir</a>
             </div>
             <div data-role="content">
                 <ul data-role="listview" id="listaHoteles" data-inset="true"></ul>
@@ -71,11 +72,11 @@
             </div>
         </div> 
         
-	<!-- PÁGINA 3: Ficha de hoteles -->
-	<div data-role="page" id="ficha" data-add-back-btn="true">
+        <!-- PÁGINA 3: Ficha de hoteles -->
+        <div data-role="page" id="ficha" data-add-back-btn="true" data-back-btn-text="Volver">
             <div data-role="header">
-                <a href="#listado" data-role="button">Volver</a>
                 <h1>Información del hotel</h1>
+                <a href="#login" data-role="button" data-icon="delete" class="ui-btn-right">Salir</a>
             </div>
             <div data-role="content" id="fichaHotel">
                 <div id="cabeceraFicha">
