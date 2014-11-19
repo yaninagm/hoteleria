@@ -15,6 +15,7 @@
         <script src="js/libs/jquery-mobile-paramsHandler/jquery.mobile.paramsHandler-1.4.2.js"></script>
         <script src="js/libs/sweetalert/sweet-alert.min.js"></script>
         <script src="js/libs/owl-carousel/owl.carousel.min.js"></script>
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js"></script>
         <script src="js/funciones.js"></script>
     </head>
     
@@ -85,13 +86,27 @@
             <div class="ui-content" role="main" id="fichaHotel">
                 <div id="cabeceraFicha">
                 </div>
-                <div data-role="collapsible-set" id="infoFicha">'
+                <!--<div data-role="collapsible-set" id="infoFicha">'
+                </div>-->
+                <div data-role="controlgroup" id="botonesFicha">'
                 </div>
                 <div id="galeria" class="owl-carousel">
                 </div>
             </div>
             <div data-role="footer" data-position="fixed">
                 <h1>By Canizo, Manganiello, Morales</h1>
+            </div>
+        </div>
+
+        <!-- PÁGINA 4: Mapa de hoteles -->
+        <div data-role="page" id="mapa">
+            <div data-role="header" data-add-back-btn="true" data-back-btn-text="Volver">
+                <h1>Cómo llegar</h1>
+                <a href="#login" data-role="button" data-icon="delete" class="ui-btn-right">Salir</a>
+            </div>
+            <div class="ui-content" role="main" id="mapaHotel">
+                <div id="mapaCanvas" style="width:500px; height:300px;">
+                </div>
             </div>
         </div>
     </body>

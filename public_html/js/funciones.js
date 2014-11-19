@@ -65,6 +65,18 @@ $(function() {
                 }
             );
 
+            // Manejo de parámetros en página #ficha (ficha de hotel)
+            $.mobile.paramsHandler.addPage(
+                'mapa',                  // ID de la página
+                ['id'],                  // Parámetros obligatorios
+                [],                      // Parámetros opcionales
+
+                // Función callback a ejecutar antes de mostrar la página
+                function (urlParams) {
+                    app.crearMapa(urlParams.id);
+                }
+            );
+
             // Inicialización de paramsHandler
             $.mobile.paramsHandler.init();
         };
@@ -164,6 +176,7 @@ $(function() {
                 success: function(data) {
                     var cabecera = '';
                     var info     = '';
+                    var botones  = '';
                     var hotel    = null;
 
                     $.each(data, function(index, item) {
@@ -198,6 +211,12 @@ $(function() {
                                 '<p>' + hotel.info_restaurant + '</p>' +
                                 '</div>';
                     }
+
+                    //if (hotel.latitud && hotel.longitud) {
+                        botones += '<a href="#mapa?id=' + hotel.id + '" class="ui-btn ui-corner-all">Cómo llegar</a>';
+                        //$('#botonesFicha').controlgroup('container').append('<a href="#mapa?id=0" class="ui-btn ui-corner-all">Cómo llegar</a>');
+                        //$('#botonesFicha').enhanceWithin().controlgroup('refresh');
+                    //}
                     
                     var directorio = hotel.directorio_galeria;
                     var extensionArchivo = '.jpg';
@@ -223,10 +242,32 @@ $(function() {
                     if (info) {
                         $('#infoFicha').html(info).collapsibleset('refresh');
                     }
+                    $('#botonesFicha').html(botones);
                 }
             });
         };
         
+        app.crearMapa = function(id_hotel) {
+            var mapOptions = {
+                center: new google.maps.LatLng(
+                            - 32.8908921,
+                            - 68.8426071
+                        ),
+                zoom: 15,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            var map = new google.maps.Map(document.getElementById("mapaCanvas"), mapOptions);
+            var companyPos = new google.maps.LatLng(
+                                 - 32.8908921,
+                                 - 68.8426071
+                             );
+            var companyMarker = new google.maps.Marker({
+                                    position: companyPos,
+                                    map: map,
+                                    title:" "
+                                });
+        };
+
         app.limpiarSlider = function() {
              var galeria = $('#galeria').data('owlCarousel');
 
