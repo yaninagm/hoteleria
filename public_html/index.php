@@ -100,13 +100,11 @@
 
         <!-- PÁGINA 4: Mapa de hoteles -->
         <div data-role="page" id="mapa">
-            <div data-role="header" data-add-back-btn="true" data-back-btn-text="Volver">
+            <div data-role="header" data-position="fixed" data-fullscreen="true" data-add-back-btn="true" data-back-btn-text="Volver">
                 <h1>Cómo llegar</h1>
                 <a href="#login" data-role="button" data-icon="delete" class="ui-btn-right">Salir</a>
             </div>
-            <div class="ui-content" role="main" id="mapaHotel">
-                <div id="mapaCanvas" style="width:500px; height:300px;">
-                </div>
+            <div class="ui-content" role="main" id="mapaCanvas">
             </div>
         </div>
     </body>
